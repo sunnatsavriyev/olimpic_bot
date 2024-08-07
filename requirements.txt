@@ -1,5 +1,5 @@
 
-Usage:   
+   
 pip freeze [options]
 
 Description:
