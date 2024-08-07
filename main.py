@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, types, executor
 import logging
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from aiogram.types import  ReplyKeyboardMarkup
 from medaltable import fetch_data1
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.cron import CronTrigger
@@ -47,7 +47,7 @@ async def handle_start(message: types.Message):
 
 @dp.message_handler(lambda message: message.text == "Medallar Jadvali🏆")
 async def handle_medals(message: types.Message):
-    api_url = 'https://apis.codante.io/olympic-games/countries'  # Replace with your API URL
+    api_url = 'https://apis.codante.io/olympic-games/countries'  # Url kiritish
     data = fetch_data1(api_url)
     response_message = f"Medallar Jadvali: \n {data}" if data else "Bu qism uchun malumot yo'q afsus!"
     await bot.send_message(message.chat.id, response_message)
@@ -56,7 +56,7 @@ async def handle_medals(message: types.Message):
 
 @dp.message_handler(lambda message: message.text == "Sport turlari ro'yhati🎗")
 async def handle_sports(message: types.Message):
-    api_url = 'https://apis.codante.io/olympic-games/disciplines'  # Replace with your API URL
+    api_url = 'https://apis.codante.io/olympic-games/disciplines'  # Url kiritish
     data = fetch_data3(api_url)
     response_message = f"Barcha sport turlari: \n {data}" if data else "Bu qism uchun malumot yo'q afsus!"
     await bot.send_message(message.chat.id, response_message)
@@ -64,8 +64,8 @@ async def handle_sports(message: types.Message):
 
 # Function to send daily reminder
 async def send_daily_reminder():
-    chat_ids = [...]  # Replace with a list of chat IDs to which you want to send the reminder
-    api_url = 'https://apis.codante.io/olympic-games/countries'  # Replace with your API URL
+    chat_ids = [] 
+    api_url = 'https://apis.codante.io/olympic-games/countries'  # Url kiritish
     data = fetch_data1(api_url)
     response_message = f"Medallar Jadvali Bugungi: \n {data}" if data else "Bu qism uchun malumot yo'q afsus!"
     for chat_id in chat_ids:
